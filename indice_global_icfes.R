@@ -1,6 +1,6 @@
 
 
-indice_v = c(NA,40,43,43,44,45,45,45,48,49,49)
+#indice_v = c(NA,40,43,43,44,45,45,45,48,49,49)
 
 #' Calcula el indice de una de las area evaluadas por el icfes
 #' (instituto colombiano para la evalaucion de la educacion sup-
@@ -40,8 +40,10 @@ calculo_indicador =  function(indice_v){
   
   #creamos una lista donde cada uno de los datos se repite la cantidad de veces
   # que esta en la muestra
+  #print(indices_key)
+  #print(indice)
   indices_s = merge(indices_key, indice, by.x='indices_key', by.y='indice_sort', all.x=T,sort=F)
-  indices_s = indices_s[order(indices_s['indices_key'],decreasing = T),]
+  indices_s = indices_s[order(indices_s['indices_key'][[1]],decreasing = T),]
   indices_s[is.na(indices_s)] = 0
   
   total =  sum(indices_s['Freq'])
@@ -59,5 +61,5 @@ calculo_indicador =  function(indice_v){
   return(indice_f)
 }
 
-
+#calculo_indicador(indice_v )
 
