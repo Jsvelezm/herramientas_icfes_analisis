@@ -1,3 +1,6 @@
+
+
+
 # Script para leer y traer toda la información de los colegios
 # calcular todos sus indicadores y generar el indice global total
 
@@ -59,5 +62,5 @@ columnas_puntajes_ex =  columnas_puntajes[!columnas_puntajes %in% c(ingles_col)]
 puntajes_t['puntaje_global'] = rowSums(puntajes_t[columnas_puntajes_ex]*3/13) + puntajes_t[ingles_col]*1/13
 
 puntajes_t['anno'] =  rownames(puntajes_t)
-write.xlsx(puntajes_t,paste0('puntajes_',colegio_esp ,'.xlsx'))
+write.xlsx(puntajes_t,paste0('puntajes_',colegio_esp ,'.xlsx'), overwrite = T)
 
